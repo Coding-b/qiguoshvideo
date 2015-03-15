@@ -1,6 +1,7 @@
 祺果视频
 
 /*********************************/
+
 1、配置文件在Application/Common/conf/config.php文件中。
     （1）七牛配置
     'UPLOAD_SITEIMG_QINIU' => array (
@@ -15,6 +16,7 @@
             'bucket' => '',
         )
     ),
+    
     （2）数据库配置
     'DB_TYPE'   => 'mysql', // 数据库类型
     'DB_HOST'   => 'localhost', // 服务器地址
