@@ -3,6 +3,7 @@
 /*********************************/
 
 1、配置文件在Application/Common/conf/config.php文件中。
+    
     （1）七牛配置
         'UPLOAD_SITEIMG_QINIU' => array (
             'maxSize' => 1 * 1024 * 1024 * 1024 * 1024,//文件大小
