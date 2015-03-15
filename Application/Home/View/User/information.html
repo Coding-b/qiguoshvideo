@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>个人中心</title>
+    <link href="http://qiguostudy.qiniudn.com/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="__PUBLIC__/Home/css/headFoot.css">
+    <link type="text/css" rel="stylesheet" href="__PUBLIC__/Home/css/informationStyle.css">
+    <link type="text/css" rel="stylesheet" href="__PUBLIC__/Common/css/toastr.css"/>
+</head>
+<body>
+    <!-- head -->
+    <include file="./Application/Home/View/Head.html"/>
+
+    <section id="main">
+        <div class="container" style="padding: 0">
+            <div class="row">
+                <div class="col-lg-3" id="info-nav">
+                    <div class="info-nav-head">
+                        <span class="glyphicon glyphicon-user">&nbsp;用户中心</span>
+                    </div>
+                    <ul class="info-nav-list">
+                        <li><a href="__APP__/Home/User/information"><span class="glyphicon glyphicon-tasks">&nbsp;个人中心</span></a></li>
+                        <li><a href="__APP__/Home/User/contributeCenter"><span class="glyphicon glyphicon-open">&nbsp;投稿中心</span></a></li>
+                        <li><a href="__APP__/Home/User/statisticsCenter"><span class="glyphicon glyphicon-stats">&nbsp;统计信息</span></a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-9 pull-right" style="padding: 0">
+                    <div class="block">
+                        <div class="base-info-head">
+                            <p class="head">
+                                基本信息
+                                <span class="hint">Basic information</span>
+                            </p>
+                        </div>
+                        <p class="divider"></p>
+                        <div class="base-info-main">
+                            <div class="row">
+                                <div class="col-lg-2">
+                                    <img src="__PUBLIC__/Home/image/myface_s.jpg" class="info-img" style="width: 100px;height: 100px">
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="info-name">
+                                        <a id="info-name-name">{$userInfo.userName}</a>
+                                        <span id="info-name-uid">Uid:{$userInfo.userId}</span>
+                                    </div>
+                                    <div class="info-register">
+                                        <span id="register-time">注册于 {$userInfo.createTime}</span>
+                                    </div>
+                                    <div class="info-personalSay">
+                                        <empty name="userInfo['personalWords']">
+                                            <span class="info-personalWords">这个人很懒，什么都没有写...</span>
+                                            <else />
+                                            <span class="info-personalWords">{$userInfo.personalWords}</span>
+                                        </empty>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="divider"></p>
+                        <div class="base-info-foot">
+                            <button type="button" class="btn btn-primary">
+                                <span class="glyphicon glyphicon-user"></span>修改头像
+                            </button>
+                            <button type="button" class="btn btn-primary">
+                                <span class="glyphicon glyphicon-edit"></span>修改个性签名
+                            </button>
+                            <button type="button" class="btn btn-primary pull-right"  data-toggle="modal" data-target="#changePassword">
+                                <span class="glyphicon glyphicon-pencil"></span>修改密码
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-9 pull-right" style="padding: 0;margin-top: 20px">
+                    <div class="block">
+                        <div class="extra-info-head">
+                            <p class="head">
+                                基本信息
+                                <span class="hint">Basic information</span>
+                            </p>
+                        </div>
+                        <p class="divider"></p>
+                        <div class="extra-info-main">
+                            <div id="info-attention" style="background-color: rgb(217,237,247);padding: 10px 5px">
+                                <span>扩展信息将会显示在用户的个人空间中。<br/>请留空您不想暴露的个人信息，以免造成不必要的隐私泄露。</span>
+                            </div>
+                            <div class="row unit">
+                                <div class="col-lg-2 unit-name">
+                                    <p class="unit-name-content">真实姓名：</p>
+                                </div>
+                                <div class="col-lg-4">
+                                    <input class="form-control unit-input" type="text" placeholder="请输入用户名">
+                                </div>
+                            </div>
+
+                            <div class="row unit">
+                                <div class="col-lg-2 unit-name">
+                                    <p class="unit-name-content">联系电话：</p>
+                                </div>
+                                <div class="col-lg-4">
+                                    <input class="form-control unit-input" type="text" placeholder="请输入您的电话">
+                                </div>
+                            </div>
+
+                            <div class="row unit">
+                                <div class="col-lg-2 unit-name">
+                                    <p class="unit-name-content">QQ：</p>
+                                </div>
+                                <div class="col-lg-4">
+                                    <input class="form-control unit-input" type="text" placeholder="请输入您的QQ">
+                                </div>
+                            </div>
+                        </div>
+                        <p class="divider"></p>
+                        <div class="extra-info-foot">
+                            <button class="btn btn-primary">
+                                <span class="glyphicon glyphicon-ok-sign"></span>保存个人资料
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="modal fade bs-example-modal-lg" id="changePassword" role="dialog" aria-hidden="true">
+        <form action="__APP__/Home/User/changePassword" method="post" id="changePasswordForm">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        修改密码
+                    </div>
+                    <div class="modal-body">
+                        <div class="input-group col-md-10 col-md-offset-1">
+                            <div class="form-control-label">密码：</div>
+                            <input class="form-control" type="password" placeholder="请输入密码" id="password" name="password">
+                        </div>
+                        <div class="input-group col-md-10 col-md-offset-1">
+                            <div class="form-control-label">确认密码：</div>
+                            <input class="form-control" type="password" placeholder="请重新输入密码" id="repassword" name="repassword">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                        <button type="button" class="btn btn-primary" onclick="onChangePsd();">修改</button>
+                    </div>
+                </div>
+            </div>
+            <input name="userId" id="userId" value="{$userInfo.userId}" type="hidden">
+        </form>
+    </div>
+
+    <div class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title">修改个性签名</h4>
+                </div>
+                <div class="modal-body">
+                    <textarea class=""></textarea>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary">保存</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+    <!-- foot -->
+    <include file="./Application/Home/View/Foot.html"/>
+
+    <script src="http://qiguostudy.qiniudn.com/js/jquery-1.11.1.min.js"></script>
+    <!-- Bootstrap JS is not required, but included for the responsive demo navigation -->
+    <script src="http://qiguostudy.qiniudn.com/bootstrap/js/bootstrap.min.js"></script>
+    <script src="__PUBLIC__/Common/js/plupload.full.min.js"></script>
+    <script src="__PUBLIC__/Common/js/qiniu.js"></script>
+    <script src="__PUBLIC__/Common/js/ui.js"></script>
+    <script src="__PUBLIC__/Home/js/informationJs.js"></script>
+    <script src="__PUBLIC__/Home/js/secondCategory.js"></script>
+    <script src="__PUBLIC__/Common/js/toastr.js"></script>
+<script>
+    function onChangePsd(){
+        var password = $('#password').val();
+        var repassword = $('#repassword').val();
+        var userId = $('#userId').val();
+
+        if(password.length < 6){
+            toastr.warning('密码长度最低为六');
+            return false;
+        }
+
+        if(password != repassword){
+            toastr.warning('前后密码输入不相同');
+            return false;
+        }
+        $('#changePassword').modal('toggle');
+        $('#password').val("");
+        $('#repassword').val("");
+        $.post("__APP__/Home/User/changePassword",{userId:userId,password:password},function(data){onSuccessReturn(data)});
+    }
+
+    function onSuccessReturn(data){
+        if(data.type == true){
+            toastr.warning('密码修改成功');
+        }else{
+            toastr.warning('密码修改失败');
+        }
+    }
+</script>
+</body>
+</html>

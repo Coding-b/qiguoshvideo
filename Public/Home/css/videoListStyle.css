@@ -1,0 +1,128 @@
+a{
+    text-decoration: none;
+    color: #888;
+}
+
+#main{
+    background-color: #f7f7f7;
+    margin-top: 20px;
+}
+
+.popular-films .pop-head{
+    background-color: rgb(30 ,93 ,173);
+    padding: 10px 5px;
+}
+.popular-films .pop-head h3{
+    padding: 0;
+    margin: 0;
+    color: #ffffff;
+}
+.popular-films .film-list{
+    padding: 5px;
+    border: 1px solid #e0e0e0;
+    border-top: none;
+}
+/*推荐*/
+.pop-film{
+    border-bottom: 1px solid #eee;
+    padding: 0;
+    margin: 0;
+}
+.command-list{
+    border: 1px solid #eee;
+}
+.pop-film .col-lg-6{
+    padding: 5px;
+}
+.fil-item-author{
+    padding: 5px 0;
+}
+.command-list .command-list-head{
+    border-bottom: 1px solid #e0e0e0;
+}
+.command-list .command-list-head p{
+    overflow: visible;
+    padding: 0 8px;
+    border: none;
+    font-weight: normal;
+    font-size: 18px;
+    font-family: Michroma,'Segoe UI Light','Segoe UI','Segoe UI WP','Microsoft Jhenghei','微软雅黑',sans-serif,Times;
+    cursor: default;
+}
+.command-list .command-list-head p .hint{
+    margin: 0 0 0 4px;
+    color: #ccc;
+    font-size: 10px;
+}
+/* 电影列表 */
+.banner{
+    background: none;
+    height: 46px;
+    line-height: 46px;
+    border-bottom: 1px solid #bbb;
+    margin-bottom: 20px;
+}
+.banner .fixed{
+    font-size: 20px;
+    color: #333;
+    height: 25px;
+    width: auto;
+    line-height: 20px;
+    padding: 0;
+    overflow: hidden;
+    vertical-align: middle;
+}
+.banner .tab{
+    overflow: visible;
+    padding: 0 8px;
+    border: none;
+    font-weight: bold;
+    font-size: 20px;
+    cursor: default;
+}
+.video{
+    font-size: 12px;
+    margin: 0 20px 24px 0;
+    width: 100%;
+    height: auto;
+    color: #888;
+    padding-left: 0;
+}
+.video .title{
+    width: 650px;
+    margin: 0 100px 8px 0;
+    font-size: 15px;
+    line-height: 16px;
+    height: 24px;
+    margin: 0 0 8px 0;
+    color: #000000;
+}
+.video .thumb{
+    margin: 0 12px 0 0;
+}
+.video .preview{
+    width: 130px;
+    height: 74px;
+}
+.video .name{
+    color: #ff9101;
+    height: 17px;
+    overflow: hidden;
+    margin: 0 8px 0 0;
+}
+.video .date{
+    color: #999;
+}
+.video .info-hover{
+    display: block;
+}
+.video .desc{
+    display: block;
+    height: 32px;
+    overflow: hidden;
+    line-height: 16px;
+    margin: 6px 0 0 0;
+    white-space: normal;
+    word-break: break-all;
+    font-size: 12px;
+}

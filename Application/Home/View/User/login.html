@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script id="allmobilize" charset="utf-8" src="http://a.yunshipei.com/9b47e74f29b222002b699b68088cb411/allmobilize.min.js"></script><meta http-equiv="Cache-Control" content="no-siteapp" />
+	<link rel="alternate" media="handheld" href="#" />
+    <title>登录</title>
+    <link href="http://qiguostudy.qiniudn.com/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="__PUBLIC__/Home/css/headFoot.css">
+    <link type="text/css" rel="stylesheet" href="__PUBLIC__/Home/css/register.css">
+</head>
+<body>
+<!-- head -->
+<include file="./Application/Home/View/Head.html"/>
+<section id="main">
+    <div class="container">
+        <div class="panel col-lg-4 col-lg-offset-1 register_panel">
+            <div class="panel-heading"><p class="text-center register_title">登&nbsp;&nbsp;&nbsp;&nbsp;录</p></div>
+            <div class="panel-body">
+                <div class="alert alert-danger alert-dismissible" role="alert" id="warm-message" style="display: none">
+                    <strong id="warm-message-content"></strong>
+                </div>
+                <div class="form-group ">
+                    <form role="form">
+                        <div class="row">
+                            <div class="input-group col-md-10 col-md-offset-1">
+                                <div class="form-control-label">用户名：</div>
+                                <input class="form-control" type="text" placeholder="请输入用户名" id="userName" name="userName">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-group col-md-10 col-md-offset-1">
+                                <div class="form-control-label">密码：</div>
+                                <input class="form-control" type="password" placeholder="请输入密码" id="password" name="password">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-control-label col-md-offset-1">验证码：</div>
+                            <div class="input-group col-md-5 col-md-offset-1 pull-left">
+                                <input class="form-control" type="text" placeholder="请输入验证码" id="verify" name="verify">
+                            </div>
+                            <div class="col-md-4">
+                                <img src="__APP__/Home/User/getVerifyCode" class="verifyCode" id="verifyCode" onclick="refreshCode()">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 col-md-offset-3">
+                                <button type="button" class="btn btn-primary col-md-12" onclick="onSubmit()">登陆</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- foot -->
+<include file="./Application/Home/View/Foot.html"/>
+
+<script src="http://qiguostudy.qiniudn.com/js/jquery-1.11.1.min.js"></script>
+<script src="http://qiguostudy.qiniudn.com/bootstrap/js/bootstrap.min.js"></script>
+<script>
+    function refreshCode(){
+        var verifyURL='__APP__/Home/User/getVerifyCode';
+        $('#verifyCode').attr('src',verifyURL + '?'+Math.random());
+        return false;
+    }
+    function onSubmit(){
+        var userName = $("#userName").val();
+        var password = $("#password").val();
+        var verify = $("#verify").val();
+
+        if(userName.length < 2 || userName.length > 10){
+            setWarm("用户名长度需在2到10之间");
+            return false;
+        }
+
+        if(password.length < 6 || password.length > 16){
+            setWarm("密码长度需在6到10之间");
+            return false;
+        }
+
+        if(verify.length != 5){
+            setWarm("验证码长度为5");
+            return false;
+        }
+
+        $.post("__APP__/Home/User/loginUser",{userName:userName,password:password,verify:verify},function(data){onSuccessReturn(data)});
+    }
+
+    function setWarm(message){
+        $("#warm-message").show();
+        $("#warm-message-content").html(message);
+        setTimeout(function hide(){
+            $("#warm-message").fadeOut();
+        },2 * 1000);
+    }
+
+    function onSuccessReturn(data){
+        if(data.type == true){
+            window.location = "__APP__/Home/Index/index";
+        }else{
+            setWarm(data.content);
+            refreshCode();
+        }
+    }
+</script>
+<script src="__PUBLIC__/Home/js/secondCategory.js"></script>
+</body>
+</html>

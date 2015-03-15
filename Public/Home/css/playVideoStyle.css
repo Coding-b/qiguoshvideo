@@ -1,0 +1,168 @@
+a{
+    color: #000000;
+}
+/* 播放主体 */
+#playerMain{
+    margin: 10px 0;
+    background-color: #f7f7f7;;
+}
+#playerMain .col-lg-9{
+    padding: 0;
+}
+#playerMain .col-lg-3{
+    padding-right: 0;
+}
+#playerMain .row{
+    padding: 0;
+}
+#playerMain .container{
+    padding: 0;
+}
+#playerMain #CuPlayer{
+    padding: 0;
+    min-height: 520px;
+}
+#playerMain .popular-films .pop-head{
+    background-color: rgb(30 ,93 ,173);
+    padding: 10px 5px;
+}
+#playerMain .popular-films .pop-head h3{
+    padding: 0;
+    margin: 0;
+    color: #ffffff;
+}
+#playerMain .popular-films .film-list{
+    padding: 5px;
+    border: 1px solid #e0e0e0;
+    border-top: none;
+}
+.pop-film{
+    border-bottom: 1px solid #eee;
+    padding: 0;
+    margin: 0;
+}
+.pop-film .col-lg-6{
+    padding: 5px;
+}
+.fil-item-author{
+    padding: 5px 0;
+}
+/* 影片详细信息 */
+#playerMain .film-detail{
+    margin-bottom: 10px;
+    box-shadow: none;
+    padding-bottom: 5px;
+    border: 1px solid #eee;
+    padding: 8px;
+    background-color: #ffffff;
+}
+#playerMain .film-detail .film-labels{
+    border-bottom: 1px dashed #ddd;
+    color: #9fabb3;
+    line-height: 16px;
+    padding: 4px 4px 4px 0;
+    font-size: 12px;
+}
+#playerMain .film-detail .film-labels ul{
+    padding: 0;
+    margin: 0;
+}
+#playerMain .film-detail .film-labels li{
+    display: inline-block;
+    overflow: hidden;
+    padding: 5px 8px;
+    margin-left: 5px;
+    border-radius: 3px;
+    background-color: rosybrown;
+}
+#playerMain .film-detail .film-introduction .description{
+    transition: .2s 0s all ease;
+    color: #8c9aa4;
+    font-size: 12px;
+    line-height: 17px;
+    overflow: hidden;
+    position: relative;
+    min-height: 50px;
+    padding: 8px;
+    margin: 8px auto 0;
+}
+/* 评论部分 */
+#comments .comments-head{
+    border-bottom: 1px solid #e0e0e0;
+}
+#comments .comments-head p{
+    overflow: visible;
+    padding: 0 8px;
+    border: none;
+    font-weight: normal;
+    font-size: 18px;
+    font-family: Michroma,'Segoe UI Light','Segoe UI','Segoe UI WP','Microsoft Jhenghei','微软雅黑',sans-serif,Times;
+    cursor: default;
+}
+#comments .comments-head p .hint{
+    margin: 0 0 0 4px;
+    color: #ccc;
+    font-size: 10px;
+}
+#comments ul.comments-list{
+    margin: 10px;
+    padding-top: 20px;
+    clear: both;
+}
+#comments ul.comments-list .item-userimage{
+    float: left;
+    width: 60px;
+    margin-right: 5px;
+}
+#comments ul.comments-list .item-content{
+    line-height: 20px;
+    padding: 5px 0 5px 0;
+    font-size: 14px;
+    text-shadow: none;
+    overflow: hidden;
+}
+#comments ul.comments-list .item-info{
+    color: #999;
+    line-height: 26px;
+    margin-left: 65px;
+}
+#comments ul.comments-list .replay{
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #eee;
+    margin: 0 0 10px 60px;
+    padding: 0 10px 10px 10px;
+}
+#comments ul.comments-list .replay .reply-ul li{
+    padding: 10px 0 10px 0;
+    border-bottom: 1px dashed #efefef;
+}
+#comments ul.comments-list .replay .reply-ul .replay-ul-item-content .content{
+    padding: 0;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+#comments ul.comments-list .replay .reply-ul .reply-ul-item{
+    padding-bottom: 10px;
+}
+.reply-rel{
+    margin-bottom: 5px;
+}
+/*推荐*/
+.command-list .command-list-head{
+    border-bottom: 1px solid #e0e0e0;
+}
+.command-list .command-list-head p{
+    overflow: visible;
+    padding: 0 8px;
+    border: none;
+    font-weight: normal;
+    font-size: 18px;
+    font-family: Michroma,'Segoe UI Light','Segoe UI','Segoe UI WP','Microsoft Jhenghei','微软雅黑',sans-serif,Times;
+    cursor: default;
+}
+.command-list .command-list-head p .hint{
+    margin: 0 0 0 4px;
+    color: #ccc;
+    font-size: 10px;
+}

@@ -1,0 +1,74 @@
+a{
+    color: #000000;
+}
+#main{
+    margin: 10px 0;
+    min-height: 500px;
+}
+#main #info-nav{
+    padding-left: 0;
+    padding-right: 0;
+    border: 1px solid #e0e0e0;
+    min-height: 500px;
+    width: 22%;
+}
+#main .info-nav-head{
+    background: #fff;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    border-bottom: #DDD solid 1px;
+    padding: 5px 10px;
+    text-shadow: #fff 1px 1px;
+}
+#main #info-nav ul.info-nav-list{
+    padding: 0;
+    margin: 0;
+}
+#main #info-nav ul.info-nav-list li{
+    min-height: 40px;
+    padding-left: 15px;
+    display: block;
+    font-size: 14px;
+    color: #45484d;
+    transition: all 0.1s linear;
+}
+#main #info-nav ul.info-nav-list li span{
+    padding-top: 10px;
+}
+#main #info-nav ul.info-nav-list li:active{
+    background-color: #2b99ce;
+}
+#main #info-nav ul.info-nav-list li:hover{
+    font-weight: bold;
+    font-size: 14px;
+    color: white;
+    cursor: pointer;
+    background-color: #2b99ce;
+}
+/* 投稿中心 */
+.main-show{
+    border: 1px solid #e0e0e0;
+    min-height: 500px;
+}
+.video-title{
+    text-align: center;
+    min-height: 40px;
+}
+.help{
+    padding-top: 5px;
+}
+.subtitle{
+    margin: 4px;
+    font-size: 13px;
+    padding: 4px;
+    border-radius: 1px;
+    box-shadow: none;
+    background-color: #eee;
+    color: #666;
+    text-align: center;
+    cursor: default;
+}
+.form-control{
+    padding-right: 0;
+    margin-right: 0;
+}

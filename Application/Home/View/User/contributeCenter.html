@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>投稿中心</title>
+    <link href="http://qiguostudy.qiniudn.com/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="__PUBLIC__/Home/css/headFoot.css">
+    <link type="text/css" rel="stylesheet" href="__PUBLIC__/Home/css/contributeCenterStyle.css">
+
+</head>
+<body>
+<!-- head -->
+<include file="./Application/Home/View/Head.html"/>
+
+<section id="main">
+    <div class="container" style="padding: 0">
+        <div class="row">
+            <div class="col-lg-3" id="info-nav">
+                <div class="info-nav-head">
+                    <span class="glyphicon glyphicon-user">&nbsp;用户中心</span>
+                </div>
+                <ul class="info-nav-list">
+                    <li><a href="__APP__/Home/User/information"><span class="glyphicon glyphicon-tasks">&nbsp;个人中心</span></a></li>
+                    <li><a href="__APP__/Home/User/contributeCenter"><span class="glyphicon glyphicon-open">&nbsp;投稿中心</span></a></li>
+                    <li><a href="__APP__/Home/User/statisticsCenter"><span class="glyphicon glyphicon-stats">&nbsp;统计信息</span></a></li>
+                </ul>
+            </div>
+            <div class="col-lg-9 main-show pull-right">
+                <div class="video-manager-head">
+                    <p class="head">
+                        投稿管理
+                        <span class="hint">Contribute manager</span>
+                    </p>
+                </div>
+                <p class="divider"></p>
+                <form action="__APP__/Home/User/contributeVideo" method="post">
+                    <div class="video-manager-main" style="margin-top: 20px">
+                    <div class="video-title row">
+                        <div class="col-lg-1 col-lg-offset-1">
+                            <p class="subtitle">
+                                标题
+                            </p>
+                        </div>
+                        <div class="col-lg-8">
+                            <input id="video-title-in" class="form-control" name="videoTitle" placeholder="请输入视频标题">
+                        </div>
+                        <div class="col-lg-1 help">
+                            <span class="glyphicon glyphicon-info-sign">详细</span>
+                        </div>
+                    </div>
+                    <p class="divider"></p>
+                    <div class="video-introduction row">
+                        <div class="col-lg-1 col-lg-offset-1">
+                            <p class="subtitle">
+                                简介
+                            </p>
+                        </div>
+                        <div class="col-lg-8">
+                            <textarea id="video-introduction-in" class="form-control" name="videoDesc" placeholder="请输入视频标题" rows="4"></textarea>
+                        </div>
+                    </div>
+                    <p class="divider"></p>
+                    <div class="video-title row">
+                        <div class="col-lg-1 col-lg-offset-1">
+                            <p class="subtitle">
+                                标签
+                            </p>
+                        </div>
+                        <div class="col-lg-8">
+                            <input id="video-labels-in" class="form-control" name="lables" placeholder="请输入视频标题">
+                        </div>
+                        <div class="col-lg-1 help">
+                            <span class="glyphicon glyphicon-info-sign">详细</span>
+                        </div>
+                    </div>
+                    <p class="divider"></p>
+                    <div class="video-title row">
+                        <div class="col-lg-1 col-lg-offset-1">
+                            <p class="subtitle">
+                                分类
+                            </p>
+                        </div>
+                        <div class="col-lg-8">
+                            <select class="form-control" id="video-kind-in" name="videoKind" placeholder="请选择分类">
+                                <volist name="videoCategory" id="category">
+                                    <optgroup label="{$category.categoryName}">
+                                        <volist name="category['secondCategory']" id="second">
+                                            <option value="{$second.categoryId}">{$second.categoryName}</option>
+                                        </volist>
+                                    </optgroup>
+                                </volist>
+                            </select>
+                        </div>
+                        <div class="col-lg-1 help">
+                            <span class="glyphicon glyphicon-info-sign">详细</span>
+                        </div>
+                    </div>
+                    <p class="divider"></p>
+                    <div class="video-image row">
+                        <div class="col-lg-1 col-lg-offset-1">
+                            <p class="subtitle">
+                                封面
+                            </p>
+                        </div>
+                        <div class="col-lg-10">
+                            <div class="row">
+                                <button id="customerButton" class="btn btn-primary fileinput-button col-lg-2" type="button" style="margin-left: 15px">
+                                    <span class="glyphicon glyphicon-picture">上传封面图片</span>
+                                </button>
+                            </div>
+                            <p>
+                                请选择您的视频封面图片。封面图片不得包含令人反感的信息，且图片大小为480*270像素，请勿上传无关图片。
+                            </p>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <table class="table table-striped table-hover text-left" id="tableImage"  style="margin-top:40px;display:none">
+                                        <thead>
+                                        <th class="col-lg-4">文件名</th>
+                                        <th class="col-lg-2">文件大小</th>
+                                        <th class="col-lg-6">上传进度</th>
+                                        </thead>
+                                        <tbody id="imgUploadProgress">
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <input type="hidden" name="videoImage" id="videoImage">
+                    </div>
+                    <p class="divider"></p>
+                    <div class="video-title row">
+                        <div class="col-lg-1 col-lg-offset-1">
+                            <p class="subtitle">
+                                视频
+                            </p>
+                        </div>
+                        <div class="col-lg-10">
+                            <div class="row fileupload-buttonbar">
+                                <div class="col-lg-7" id="container">
+                                    <span class="btn btn-success fileinput-button" id="uploadVideo">
+                                        <i class="glyphicon glyphicon-plus"></i>
+                                        <span>添加视频</span>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <table class="table table-striped table-hover text-left" id="tableVideo"  style="margin-top:40px;display:none">
+                                        <thead>
+                                        <th class="col-lg-4">文件名</th>
+                                        <th class="col-lg-2">文件大小</th>
+                                        <th class="col-lg-6">上传进度</th>
+                                        </thead>
+                                        <tbody id="fsUploadProgress">
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <input type="hidden" name="videoAdd" id="videoAdd">
+                    </div>
+                    <p class="divider"></p>
+                    <div id="warm" style="display: none">
+                        <div class="alert alert-danger alert-dismissible" role="alert" id="warm-message">
+                            <strong id="warm-message-content"></strong>
+                        </div>
+                        <p class="divider"></p>
+                    </div>
+                    <div class="row" style="margin-bottom: 10px">
+                        <button class="btn btn-success col-lg-4 col-lg-offset-4" type="button" id="contributeSubmit" onclick="onSubmit();">提交投稿</button>
+                    </div>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- foot -->
+<include file="./Application/Home/View/Foot.html"/>
+
+<script src="http://qiguostudy.qiniudn.com/js/jquery-1.11.1.min.js"></script>
+<!-- Bootstrap JS is not required, but included for the responsive demo navigation -->
+<script src="http://qiguostudy.qiniudn.com/bootstrap/js/bootstrap.min.js"></script>
+<script src="__PUBLIC__/Common/js/plupload.full.min.js"></script>
+<script src="__PUBLIC__/Common/js/qiniu.js"></script>
+<script src="__PUBLIC__/Common/js/ui.js"></script>
+<script src="__PUBLIC__/Home/js/informationJs.js"></script>
+<script src="__PUBLIC__/Home/js/secondCategory.js"></script>
+</body>
+</html>

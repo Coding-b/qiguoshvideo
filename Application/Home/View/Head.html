@@ -1,0 +1,80 @@
+<section id="header" class="header">
+    <section id="topbar">
+        <div class="container">
+            <div class="pull-left">
+                <span id="welcome-msg">欢迎来到祺果生活</span>
+            </div>
+            <div class="pull-right topLinks">
+                <div class="quick-access">
+                    <ul class="links">
+                        <empty name="userInfo">
+                            <li>
+                                <a href="__APP__/Home/User/Login">
+                                    登陆
+                                </a>
+                            </li>
+                            <li>
+                                <a href="__APP__/Home/User/Register">
+                                    注册
+                                </a>
+                            </li>
+                            <else/>
+                            <li>
+                                <a href="__APP__/Home/User/information">
+                                    {$userInfo.userName}
+                                </a>
+                            </li>
+                            <li><a href="__APP__/Home/User/login">退出登录</a></li>
+                        </empty>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>
+<section id="head">
+    <div class="container">
+        <div class="row">
+            <dic class="col-lg-3">
+                <a href="__APP__/Home/Index/index">
+                    <img src="__PUBLIC__/Home/image/logo.png">
+                </a>
+            </dic>
+            <div class="col-lg-6" id="search">
+                <div class="input-group">
+                    <input type="text" class="form-control">
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-search"></span>
+                        </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="nav">
+    <div class="container" style="padding: 0">
+        <div id="navigation" class="navlist" style="padding: 0;margin: 0">
+            <ul class="row" id="navfouce">
+                <li>
+                    <a href="__APP__/Home/Index/index">首页</a>
+                </li>
+                <volist name="categoryList" id="category">
+                    <li>
+                        <a href="__APP__/Home/Video/videoList?categoryId={$category.categoryId}">{$category.categoryName}</a>
+                    </li>
+                </volist>
+            </ul>
+        </div>
+        <div id="nav-box" class="nav-box">
+            <volist name="categoryList" id="category">
+                <div class="cont" style="display: none">
+                    <div class="sublist row" style="padding: 0">
+                        <volist name="category['secondCategory']" id="second">
+                            <a href="__APP__/Home/Video/videoList?categoryId={$second.categoryParent}&secondCategory={$second.categoryId}">{$second.categoryName}</a>
+                        </volist>
+                    </div>
+                </div>
+            </volist>
+        </div>
+    </div>
+</section>

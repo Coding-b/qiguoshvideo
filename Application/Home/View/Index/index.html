@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+<head>
+	<script id="allmobilize" charset="utf-8" src="http://a.yunshipei.com/9b47e74f29b222002b699b68088cb411/allmobilize.min.js"></script><meta http-equiv="Cache-Control" content="no-siteapp" />
+	<link rel="alternate" media="handheld" href="#" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>祺果视频</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="baidu-site-verification" content="2Bt3br1KXx" />
+    <link href="http://qiguostudy.qiniudn.com/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <link href="__PUBLIC__/Home/css/indexStyle.css" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="__PUBLIC__/Rhinoslider/css/rhinoslider-1.05.css">
+    <link type="text/css" rel="stylesheet" href="__PUBLIC__/Home/css/headFoot.css">
+</head>
+<body>
+    <!-- head -->
+    <include file="./Application/Home/View/Head.html"/>
+
+    <section id="main">
+        <div class="container" style="padding: 0">
+            <div class="row">
+                <div class="col-lg-9" style="margin: 0;padding: 0">
+                    <ul id="slider">
+                        <volist name="slideList" id="slide">
+                            <li>
+                                <img src="{$slide.slideImage}">{$slide.slideImage}
+                            </li>
+                        </volist>
+                    </ul>
+
+                    <div class="row" style="margin-bottom: 10px;margin-top: 40px">
+                        <volist name="newVideoList" id="new">
+                            <div class="col-lg-4">
+                                <div class="film">
+                                    <h4 class="film-name" style="width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">{$new.videoName}</h4>
+                                    <a href="__APP__/Home/Video/playVideo?videoId={$new.videoId}">
+                                        <img src="{$new.videoImage}" title="film-name" class="videoImage">
+                                    </a>
+                                    <div class="film-info">
+                                        <span>{$new.viewed}次播放&nbsp;&nbsp;&nbsp;</span>
+                                        <div class="film-labels">
+                                            <span class="glyphicon glyphicon-tags pull-left" style="line-height: 20px;font-size: 15px;padding-top: 5px">标签:</span>
+                                            <ul>
+                                                <volist name="new['labels']" id="label">
+                                                    <li>{$label}</li>
+                                                </volist>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </volist>
+                    </div>
+                </div>
+                <div class="col-lg-3" style="padding-right: 0;margin: 0">
+                    <div class="popular-header" style="padding: 0">
+                        <h3 style="padding:10px 5px;margin: 0">火爆影片</h3>
+                    </div>
+                    <volist name="topVideoList" id="topVideo">
+                        <div class="film">
+                            <h4 class="film-name">{$topVideo.videoName}</h4>
+                            <a href="__APP__/Home/Video/playVideo?videoId={$topVideo.videoId}">
+                                <img src="{$topVideo.videoImage}" title="film-name" alt="{$topVideo.videoName}">
+                            </a>
+                            <div class="film-info">
+                                <span>{$topVideo.viewed}次播放&nbsp;&nbsp;&nbsp;</span>
+                                <div class="film-labels" style="width: 100%;overflow: hidden;white-space: nowrap">
+                                    <span class="glyphicon glyphicon-tags pull-left" style="line-height: 20px;font-size: 15px;padding-top: 5px">标签:</span>
+                                    <ul>
+                                        <volist name="topVideo['labels']" id="label">
+                                            <li>{$label}</li>
+                                        </volist>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </volist>
+                </div>
+            </div>
+
+            <div class="row">
+                {$page}
+            </div>
+        </div>
+    </section>
+    <!-- foot -->
+    <include file="./Application/Home/View/Foot.html"/>
+
+<script src="http://qiguostudy.qiniudn.com/js/jquery-1.11.1.min.js"></script>
+<script src="http://qiguostudy.qiniudn.com/bootstrap/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="__PUBLIC__/Rhinoslider/js/rhinoslider-1.05.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Rhinoslider/js/mousewheel.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Rhinoslider/js/easing.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#slider').rhinoslider({
+            showControls: 'always',
+            showBullets: 'always'
+        });
+    });
+</script>
+<script src="__PUBLIC__/Home/js/secondCategory.js"></script>
+</body>
+</html>

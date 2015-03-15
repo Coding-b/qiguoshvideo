@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>祺果视频后台首页</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <link href="http://qiguostudy.qiniudn.com/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="__PUBLIC__/Home/css/headFoot.css">
+    <link type="text/css" rel="stylesheet" href="__PUBLIC__/Root/css/indexStyle.css">
+</head>
+<body>
+<!-- head -->
+<include file="./Application/Home/View/Head.html"/>
+
+<section id="main">
+    <div class="container" style="padding: 0">
+        <div class="row">
+            <div class="col-lg-3" id="info-nav">
+                <div class="info-nav-head">
+                    <span class="glyphicon glyphicon-user">&nbsp;用户中心</span>
+                </div>
+                <ul class="info-nav-list">
+                    <li><a href="__APP__/Root/Index/index"><span class="glyphicon glyphicon-tasks">&nbsp;用户管理</span></a></li>
+                    <li><a href="__APP__/Root/Contribute/index"><span class="glyphicon glyphicon-open">&nbsp;投稿管理</span></a></li>
+                    <li><a href="__APP__/Root/information/index"><span class="glyphicon glyphicon-stats">&nbsp;统计信息</span></a></li>
+                </ul>
+            </div>
+            <div class="col-lg-9 pull-right" style="padding: 0">
+                <div class="block">
+                    <div class="base-info-head">
+                        <p class="head">
+                            用户管理
+                            <span class="hint">User manager</span>
+                        </p>
+                    </div>
+                    <p class="divider"></p>
+                    <div class="base-info-main">
+                        <table class="table table-bordered" style="margin:0 5px">
+                            <thead>
+                                <th>Uid</th>
+                                <th>昵称</th>
+                                <th>email</th>
+                                <th>电话</th>
+                                <th>操作</th>
+                            </thead>
+                            <tbody>
+                                <volist name="userList" id="user">
+                                    <tr>
+                                        <td>{$user.userId}</td>
+                                        <td>{$user.userName}</td>
+                                        <td>{$user.emailAdd}</td>
+                                        <td>{$user.phoneNum}</td>
+                                        <td>
+                                            <a class="btn btn-danger" href="__APP__/Root/Index/deleteUser?userId={$user.userId}">
+                                                删除
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </volist>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="divider"></p>
+                    <div class="base-info-foot">
+                        {$page}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- foot -->
+<include file="./Application/Home/View/Foot.html"/>
+
+<script src="http://qiguostudy.qiniudn.com/js/jquery-1.11.1.min.js"></script>
+<script src="http://qiguostudy.qiniudn.com/bootstrap/js/bootstrap.min.js"></script>
+
+<script src="__PUBLIC__/Home/js/secondCategory.js"></script>
+</body>
+</html>

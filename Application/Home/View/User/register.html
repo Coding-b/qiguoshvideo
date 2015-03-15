@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script id="allmobilize" charset="utf-8" src="http://a.yunshipei.com/9b47e74f29b222002b699b68088cb411/allmobilize.min.js"></script><meta http-equiv="Cache-Control" content="no-siteapp" />
+	<link rel="alternate" media="handheld" href="#" />
+    <title>注册</title>
+    <link href="http://qiguostudy.qiniudn.com/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="__PUBLIC__/Home/css/headFoot.css">
+    <link type="text/css" rel="stylesheet" href="__PUBLIC__/Home/css/register.css">
+</head>
+<body>
+    <!-- head -->
+    <include file="./Application/Home/View/Head.html"/>
+    <section id="main">
+        <div class="container">
+            <div class="panel col-lg-4 col-lg-offset-1 register_panel">
+                <div class="panel-heading"><p class="text-center register_title">注&nbsp;&nbsp;&nbsp;&nbsp;册</p></div>
+                <div class="panel-body">
+                    <div class="alert alert-danger alert-dismissible" role="alert" id="warm-message" style="display: none">
+                        <strong id="warm-message-content"></strong>
+                    </div>
+                    <div class="form-group ">
+                        <form role="form" action="__APP__/Home/User/registerUser" method="post" id="registerForm">
+                            <div class="row">
+                                <div class="input-group col-md-10 col-md-offset-1">
+                                    <div class="form-control-label">用户名：</div>
+                                    <input id="userName" class="form-control" type="text" name="userName" placeholder="请输入用户名">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-group col-md-10 col-md-offset-1">
+                                    <div class="form-control-label">密码：</div>
+                                    <input id="password" class="form-control" type="password" name="password" placeholder="请输入密码">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-group col-md-10 col-md-offset-1">
+                                    <div class="form-control-label">确认密码：</div>
+                                    <input id="repassword" class="form-control" type="password" name="repassword" placeholder="请再输入密码一次">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-group col-md-10 col-md-offset-1">
+                                    <div class="form-control-label">注册邮箱：</div>
+                                    <input id="email" class="form-control" type="email" name="email" placeholder="请输入邮箱">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-control-label col-md-offset-1">验证码：</div>
+                                <div class="input-group col-md-5 col-md-offset-1 pull-left">
+                                    <input id="verify" class="form-control" type="text" name="verify" placeholder="请输入验证码">
+                                </div>
+                                <div class="col-md-4">
+                                    <img src="__APP__/Home/User/getVerifyCode" class="verifyCode" id="verifyCode" onclick="refreshCode()">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <p class="input-group col-md-10 col-md-offset-1">
+                                    <input type="checkbox" id="isAgree" onclick="toogleAgree(this)" checked>我已同意<a data-toggle="modal" data-target="#registerMessage">《祺果视频会员注册协议》</a>
+                                </p>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 col-md-offset-3">
+                                    <button type="button" class="btn btn-primary col-md-12" id="registerBtn" onclick="onSubmit()">注册</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal fade" id="registerMessage">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title">祺果视频会员注册协议</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <pre style="line-height: 200%">   1. 在本站注册的会员，必须遵守《互联网电子公告服务管理规定》，不得在本站发表诽谤他人，侵犯他人隐私，侵犯他人知识产权，传播病毒，政治言论，商业讯息等信息。<br>  2. 在所有在本站发表的信息，本站都具有最终审查权，并且保留用于印刷或向第三方发表的权利，如果你的资料不齐全，我们将有权不作任何通知使用你在本站发布的作品。<br>  3. 在登记过程中，您将选择注册名和密码。注册名的选择应遵守法律法规及社会公德。您必须对您的密码保密，您将对您注册名和密码下发生的所有活动承担责任。
+                                    </pre>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">确定</button>
+                                </div>
+                            </div><!-- /.modal-content -->
+                        </div><!-- /.modal-dialog -->
+                    </div><!-- /.modal -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- foot -->
+    <include file="./Application/Home/View/Foot.html"/>
+
+<script src="http://qiguostudy.qiniudn.com/js/jquery-1.11.1.min.js"></script>
+<script src="http://qiguostudy.qiniudn.com/bootstrap/js/bootstrap.min.js"></script>
+<script>
+    function refreshCode(){
+        var verifyURL='__APP__/Home/User/getVerifyCode';
+        $('#verifyCode').attr('src',verifyURL + '?'+Math.random());
+        return false;
+    }
+
+    function toogleAgree(context){
+        if($(context).attr('checked')){
+            $(context).removeAttr("checked");
+            $("#registerBtn").attr("disabled","disabled");
+        }else{
+            $(context).attr('checked',"");
+            $("#registerBtn").removeAttr("disabled");
+        }
+    }
+
+    function onSubmit(){
+        var userName = $("#userName").val();
+        var password = $("#password").val();
+        var repassword = $("#repassword").val();
+        var verify = $("#verify").val();
+        var email = $("#email").val();
+
+        if(userName.length < 2 || userName.length > 10){
+            setWarm("用户名长度需在2到10之间");
+            return false;
+        }
+
+        if(password.length < 6 || password.length > 16){
+            setWarm("密码长度需在6到10之间");
+            return false;
+        }
+
+        if(password.trim() != repassword.trim()){
+            setWarm("两次输入的密码不一致");
+            return false;
+        }
+
+        var reg=/^\w{3,}@\w+(\.\w+)+$/;
+        if(!reg.test(email)){
+            setWarm("邮箱格式不正确");
+            return false;
+        }
+
+        if(verify.length != 5){
+            setWarm("验证码长度为5");
+            return false;
+        }
+
+        $.post("__APP__/Home/User/registerUser",{userName:userName,password:password,repassword:repassword,verify:verify,emailAdd:email},function(data){onSuccessReturn(data)});
+    }
+
+    function setWarm(message){
+        $("#warm-message").show();
+        $("#warm-message-content").html(message);
+        setTimeout(function hide(){
+            $("#warm-message").fadeOut();
+        },2 * 1000);
+    }
+
+    function onSuccessReturn(data){
+        if(data.type == true){
+            window.location = "__APP__/Home/User/Login";
+        }else{
+            setWarm(data.content);
+        }
+    }
+</script>
+<script src="__PUBLIC__/Home/js/secondCategory.js"></script>
+</body>
+</html>

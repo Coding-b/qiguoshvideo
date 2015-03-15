@@ -1,0 +1,102 @@
+a{
+    color: #000000;
+}
+#main{
+    margin: 10px 0;
+    min-height: 500px;
+}
+#main #info-nav{
+    padding-left: 0;
+    padding-right: 0;
+    border: 1px solid #e0e0e0;
+    min-height: 500px;
+    width: 22%;
+}
+#main .info-nav-head{
+    background: #fff;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    border-bottom: #DDD solid 1px;
+    padding: 5px 10px;
+    text-shadow: #fff 1px 1px;
+}
+#main #info-nav ul.info-nav-list{
+    padding: 0;
+    margin: 0;
+}
+#main #info-nav ul.info-nav-list li{
+    min-height: 40px;
+    padding-left: 15px;
+    display: block;
+    font-size: 14px;
+    color: #45484d;
+    transition: all 0.1s linear;
+}
+#main #info-nav ul.info-nav-list li span{
+    padding-top: 10px;
+}
+#main #info-nav ul.info-nav-list li:active{
+    background-color: #2b99ce;
+}
+#main #info-nav ul.info-nav-list li:hover{
+    font-weight: bold;
+    font-size: 14px;
+    color: white;
+    cursor: pointer;
+    background-color: #2b99ce;
+}
+/* 主体部分 */
+.block{
+    border: 1px solid #e0e0e0;
+}
+.base-info-foot{
+    padding: 5px 5px;
+}
+.base-info-foot button{
+    border-radius: 0;
+}
+.base-info-foot button span{
+    padding-right: 3px;
+}
+.base-info-main .info-img{
+    margin-left: 30px;
+}
+.info-name #info-name-name{
+    font-size: 16px;
+    font-weight: bold;
+    color: #c66;
+}
+.info-name #info-name-uid{
+    font-size: 12px;
+    color: #999;
+    margin: 0 0 0 2px;
+}
+.info-personalSay{
+    font-size: 13px;
+    color: #444;
+    display: inline-block;
+    margin: 8px 0;
+    padding: 8px 0;
+    border-top: 1px dashed #ddd;
+    cursor: pointer;
+}
+.unit {
+    margin: 5px;
+}
+.unit .unit-name{
+    padding-right: 0;
+}
+.unit .unit-name .unit-name-content{
+    text-align: right;
+    padding-top: 5px;
+}
+.extra-info-foot{
+    margin-bottom: 10px;
+    margin-left: 20px;
+}
+.extra-info-foot button{
+    border-radius: 0;
+}
+.extra-info-foot button span{
+    padding-right: 3px;
+}

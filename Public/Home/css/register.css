@@ -1,0 +1,27 @@
+.register_panel{
+   border: 1px solid #e0e0e0;
+}
+    .register_title{
+        font-size: xx-large;
+        padding-bottom: 5px;
+        margin: 0;
+    }
+
+.register_panel .row{
+        margin-bottom: 15px;
+        line-height: 200%;
+    }
+.form-control-label{
+    font-weight: bold;
+    color: #777;
+    font-size: 12px;
+}
+.form-control{
+    height: 50px;
+}
+.verifyCode{
+    height: 40px;
+    width: auto;
+    vertical-align: middle;
+    margin-top: 3px;
+}

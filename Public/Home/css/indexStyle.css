@@ -1,0 +1,53 @@
+/* 主体部分 */
+#main{
+    min-height: 520px;
+    margin: 10px 0;
+    padding: 0;
+}
+#slider {
+    height: 500px;
+    /*IE bugfix*/
+    padding:0;
+    margin:0;
+}
+#main .popular-header{
+    background-color: rgb(30, 93, 173);
+    color: #ffffff;
+}
+
+.film{
+    border: 1px solid rgb(230, 230, 230);
+    padding: 10px;
+}
+.film .film-name{
+    font-size: 0.89em;
+    font-family: 'Ropa Sans', sans-serif;
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+.film img{
+    width: 100%;
+}
+.film .film-info span{
+    height: 20px;
+    font-size: 12px;
+    color: #858e93;
+}
+.film .film-info .film-labels{
+    margin: 5px 0;
+}
+.film .film-info .film-labels ul li{
+    display: inline-block;
+    overflow: hidden;
+    padding: 5px 8px;
+    margin-left: 5px;
+    border-radius: 3px;
+    background-color: rosybrown;
+}
+.film .film-info .film-labels ul li a{
+    text-decoration: none;
+    color: #000000;
+}
+.film .videoImage{
+    height: 360px;
+}

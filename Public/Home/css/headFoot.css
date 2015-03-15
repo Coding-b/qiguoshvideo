@@ -1,0 +1,147 @@
+*{
+    font-family: "microsoft yahei";
+}
+ul ,ol{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+a{
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+}
+.clear{
+    clear: both;
+}
+/* 顶部 */
+#topbar{
+    background: #f5f5f5;
+    border-color: #DCDCDC;
+    border-width: 0 0 1px;
+    border-style: solid;
+    line-height: 36px;
+    color: #8c8c8c;
+    z-index: 99;
+}
+.pull-right{
+    float: right;
+}
+ul,ol{
+    list-style: none outside none;
+    padding: 0;
+    margin: 0;
+}
+.links li{
+    display: inline;
+    float: right;
+    margin: 0 10px 0 15px;
+    font-size: 12px;
+}
+#head{
+    padding: 15px 0;
+}
+#search{
+    padding-top: 20px;
+}
+/* 导航栏 */
+#nav{
+    margin-bottom: 10px;
+}
+#navigation{
+    margin-top: 10px;
+}
+#navigation ul{
+    background: rgb(30, 93, 173);
+}
+#navigation ul li{
+    text-align: center;
+    float: left;
+    width: 100px;
+}
+#navigation ul li:hover{
+    background: rgb(28,70,150);
+}
+#navigation ul li a{
+    text-align: center;
+    text-decoration: none;
+    width: 100px;
+    color: #ffffff;
+    font: 700 15px/40px "microsoft yahei";
+}
+/*****************************************/
+.nav-box{
+    margin: 0;
+    overflow:hidden;
+    vertical-align: middle;
+    box-shadow: rgba(0,0,0,2);
+    border-bottom: 1px solid #00a7c8;
+}
+.cont{
+    display: none;
+    width: 100%;
+    height: 37px;
+    padding-left: 100px;
+    padding-top: 5px;
+}
+.sublist{
+    padding-top: 5px;
+}
+.sublist a{
+    vertical-align: middle;
+    display: inline-block;
+    color: #333;
+    padding: 0 4px;
+    margin-right: 30px;
+}
+/* 底部 */
+#footer{
+    padding-top: 10px;
+    border-top: 1px solid #e2e2e2;
+}
+#footer .box .box-heading{
+    border-bottom: 1px solid #e2e2e2;
+    min-height: 35px;
+    padding: 0px;
+    font-weight: bold;
+}
+#footer .box .box-content{
+    background: none;
+    border: none;
+    padding: 10px 0;
+}
+#footer .box .box-content a{
+    text-decoration: none;
+    color: rgb(111,111,111);
+}
+.column li{
+    margin-bottom: 0px;
+    line-height: 30px;
+}
+/* 全局性设置 */
+p.head{
+    overflow: visible;
+    padding: 0 8px;
+    border: none;
+    font-weight: normal;
+    font-size: 18px;
+    font-family: Michroma,'Segoe UI Light','Segoe UI','Segoe UI WP','Microsoft Jhenghei','微软雅黑',sans-serif,Times;
+    cursor: default;
+}
+
+p.head .hint{
+    margin: 0 0 0 4px;
+    color: #ccc;
+    font-size: 10px;
+}
+
+p.divider{
+    height: 1px;
+    border-top: 1px dashed #ddd;
+    margin: 8px auto;
+}
+/* 全局 */
+#main{
+    min-height: 520px;
+}

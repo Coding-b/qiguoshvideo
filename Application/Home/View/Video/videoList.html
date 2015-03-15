@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script id="allmobilize" charset="utf-8" src="http://a.yunshipei.com/9b47e74f29b222002b699b68088cb411/allmobilize.min.js"></script><meta http-equiv="Cache-Control" content="no-siteapp" />
+	<link rel="alternate" media="handheld" href="#" />
+    <title>视频列表</title>
+    <link href="http://qiguostudy.qiniudn.com/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="__PUBLIC__/Home/css/headFoot.css">
+    <link type="text/css" rel="stylesheet" href="__PUBLIC__/Home/css/videoListStyle.css">
+</head>
+<body>
+<!-- head -->
+<include file="./Application/Home/View/Head.html"/>
+<section id="main">
+    <div class="container" style="padding: 0">
+        <div class="row">
+            <div class="col-lg-9" style="padding-left: 0">
+                <div class="banner">
+                    <a class="tab fixed">视频</a>
+                </div>
+                <volist name="videoList" id="video">
+                    <div class="video row">
+                        <div class="col-lg-2">
+                            <a class="thumb" href="__APP__/Home/Video/playVideo?videoId={$video.videoId}">
+                                <img class="preview" src="{$video.videoImage}">
+                            </a>
+                        </div>
+                        <div class="col-lg-9" style="margin-left: 15px;">
+                            <div class="row" style="border-bottom: 1px solid #eee;padding-bottom: 3px">
+                                <a class="title" href="__APP__/Home/Video/playVideo?videoId={$video.videoId}">{$video.videoName}</a>
+                            </div>
+                            <div class="row" style="margin-top: 5px">
+                                <a class="name col-lg-2">
+                                    <i class="glyphicon glyphicon-user"></i>
+                                    华凌太子
+                                </a>
+                                <a class="date col-lg-4">{$video.createTime}</a>
+                                <a class="info-hover col-lg-2">
+                                    <div class="play pull-left" style="margin-right: 10px">
+                                        <i class="glyphicon glyphicon-play-circle"></i>
+                                        {$video.viewed}
+                                    </div>
+                                    <div class="comments pull-left">
+                                        <i class="glyphicon glyphicon-cloud"></i>
+                                        5
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="row">
+                                <p class="desc">
+                                    {$video.videoDesc}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </volist>
+            </div>
+            <div class="col-lg-3" style="padding-right: 0;margin-right: 0">
+                <div class="popular-films">
+                    <div class="pop-head">
+                        <h3>热门视频</h3>
+                    </div>
+                    <div class="film-list">
+                        <ul>
+                            <volist name="topVideoList" id="topVideo">
+                                <li class="pop-film row">
+                                    <a class="col-lg-6" href="__APP__/Home/Video/playVideo?videoId={$topVideo.videoId}">
+                                        <img src="{$topVideo.videoImage}" style="width: 100%"/>
+                                    </a>
+                                    <div class="col-lg-6">
+                                        <div class="film-item-name">
+                                            <span>{$topVideo.videoName}</span>
+                                        </div>
+                                        <div class="fil-item-author">
+                                            <span class="glyphicon glyphicon-user">:华凌太子</span>
+                                        </div>
+                                        <div>
+                                            <span class="glyphicon glyphicon-eye-open">{$topVideo.viewed}</span>&nbsp;&nbsp;&nbsp;
+                                            <span class="glyphicon glyphicon-bullhorn">123</span>
+                                        </div>
+                                    </div>
+                                </li>
+                            </volist>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="page col-lg-9">
+                {$page}
+            </div>
+        </div>
+    </div>
+</section>
+<!-- foot -->
+<include file="./Application/Home/View/Foot.html"/>
+
+<script src="http://qiguostudy.qiniudn.com/js/jquery-1.11.1.min.js"></script>
+<script src="http://qiguostudy.qiniudn.com/bootstrap/js/bootstrap.min.js"></script>
+<script src="__PUBLIC__/Home/js/secondCategory.js"></script>
+</body>
+</html>

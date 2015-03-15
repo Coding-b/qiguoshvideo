@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+<head>
+	<script id="allmobilize" charset="utf-8" src="http://a.yunshipei.com/9b47e74f29b222002b699b68088cb411/allmobilize.min.js"></script><meta http-equiv="Cache-Control" content="no-siteapp" />
+	<link rel="alternate" media="handheld" href="#" />
+    <title>{$videoInfo.videoName}</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link type="text/css" rel="stylesheet" href="__PUBLIC__/Home/css/headFoot.css">
+    <link href="http://qiguostudy.qiniudn.com/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/playVideoStyle.css">
+
+</head>
+<body>
+    <!-- head -->
+    <include file="./Application/Home/View/Head.html"/>
+
+    <section id="playerMain">
+        <div class="container">
+            <div class="row">
+                <div class="film-info">
+                    <h4 style="padding:5px 0;margin: 0">{$videoInfo.videoName}</h4>
+                    <p>
+                        {$videoInfo.owner} /  发布于{$videoInfo.createTime} / 播放：{$videoInfo.viewed}  评论：{$reviewCount}  / 举报视频
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-9">
+                    <!-- the player -->
+                    <div id="a1"></div>
+					<input style="width:0;height: 0;padding: 0;margin: 0" id="videoAddress" value="{$videoInfo.videoAdd}"/>
+                </div>
+                <div class="popular-films col-lg-3" style="padding-right: 0">
+                    <div class="pop-head">
+                        <h3>热门视频</h3>
+                    </div>
+                    <div class="film-list">
+                        <ul>
+                            <volist name="topVideoList" id="topVideo">
+                                <li class="pop-film row">
+                                    <a class="col-lg-6" href="__APP__/Home/Video/playVideo?videoId={$topVideo.videoId}">
+                                        <img src="{$topVideo.videoImage}" style="width: 100%"/>
+                                    </a>
+                                    <div class="col-lg-6">
+                                        <div class="film-item-name">
+                                            <span>{$topVideo.videoName}</span>
+                                        </div>
+                                        <div class="fil-item-author">
+                                            <span class="glyphicon glyphicon-user">:华凌太子</span>
+                                        </div>
+                                        <div>
+                                            <span class="glyphicon glyphicon-eye-open">{$topVideo.viewed}</span>&nbsp;&nbsp;&nbsp;
+                                            <span class="glyphicon glyphicon-bullhorn">123</span>
+                                        </div>
+                                    </div>
+                                </li>
+                            </volist>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="margin-bottom: 10px">
+                <div class="col-lg-12 film-detail" style="padding: 0">
+                    <div class="film-labels">
+                        <span class="glyphicon glyphicon-tags pull-left" style="line-height: 20px;font-size: 15px;padding-top: 5px">标签:</span>
+                        <ul>
+                            <volist name="videoInfo['labels']" id="label">
+                                <li>
+                                    <a>{$label}</a>
+                                </li>
+                            </volist>
+                        </ul>
+                    </div>
+                    <div class="film-introduction">
+                        <p class="description">
+                            {$videoInfo.videoDesc}
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row" id="comments">
+                <div class="col-lg-9" style="padding: 0">
+                    <div class="comments-head">
+                        <p>
+                            评论列表
+                            <span class="hint">Comments</span>
+                        </p>
+                    </div>
+                    <div class="ds-thread" data-limit="5" data-thread-key="{$videoInfo.videoId}" data-title="{$videoInfo.videoName}" data-url="{$videoInfo.videoAdd}"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- foot -->
+    <include file="./Application/Home/View/Foot.html"/>
+<!-- flowplayer depends on jQuery 1.7.1+ (for now) -->
+<script src="http://qiguostudy.qiniudn.com/js/jquery-1.11.1.min.js"></script>
+<script src="http://qiguostudy.qiniudn.com/bootstrap/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="__PUBLIC__/CkPlayer/ckplayer.js" charset="utf-8"></script>
+<script src="__PUBLIC__/Home/js/secondCategory.js"></script>
+<script type="text/javascript">
+    var flashvars={
+        f:'{$videoInfo["videoAdd"]}',
+        c:'0',
+        p:1
+    };
+    var params={bgcolor:'#FFF',allowFullScreen:true,allowScriptAccess:'always',wmode:"transparent"};
+    var video=['{$videoInfo["videoHtml5"]}->video/mp4'];
+    CKobject.embed('__PUBLIC__/CkPlayer/ckplayer.swf','a1','ckplayer_a1','100%','520px',false,flashvars,video,params)
+
+</script>
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+    var duoshuoQuery = {short_name:"qiguovideo"};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0]
+        || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+</script>
+<!-- 多说公共JS代码 end -->
+</body>
+</html>
